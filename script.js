@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Mobile Menu Toggle ---
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
             const icon = mobileBtn.querySelector('i');
-            if(icon) {
+            if (icon) {
                 icon.classList.remove('fa-xmark');
                 icon.classList.add('fa-bars');
             }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Navbar Scroll Effect ---
     const navbar = document.querySelector('.navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -70,16 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
         .section-desc, 
         .about-text p,
         .service-card,
+        .gallery-item,
         .feature-list li,
         .contact-card,
         .contact-form
     `);
 
     sectionElements.forEach((el, index) => {
-        if(!el.classList.contains('animate-up')) {
+        if (!el.classList.contains('animate-up')) {
             el.classList.add('animate-up');
             // Stagger animation for grid cards
-            if(el.classList.contains('service-card') || el.classList.contains('feature-list li') || el.classList.contains('contact-card')) {
+            if (el.classList.contains('service-card') || el.classList.contains('gallery-item') || el.classList.contains('feature-list li') || el.classList.contains('contact-card')) {
                 const delay = (index % 4) + 1;
                 el.classList.add(`delay-${delay}`);
             }
@@ -92,11 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             // Get button to show loading state
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
+
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
 
